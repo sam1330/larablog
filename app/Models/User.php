@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Rol;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'rol_id',
+        'surname',
         'email',
         'password',
     ];
@@ -40,4 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rol() {
+        return $this->belongsTo(Rol::class);
+    }
 }

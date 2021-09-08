@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Hello - {{ "$nombre $apellido" }}</h1>
-    <?php foreach ($users as $user) :?>
-        The user is {{ $user }}
-        <?php endforeach; ?>
-    <ul>
-    @forelse ($users as $user)
-        <?php dd($loop) ?>
-        @if ($loop->first)
-            primero
-        @endif
-        <li>The user is {{ $user }}</li>
-        @empty
-        <li>No hay Usuarios</li>
-    @endforelse
-    </ul>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ auth()->user()->rol }} {{ __(' logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -2,43 +2,42 @@
 
 @section('content')
 
-<a href="{{ route('post.create') }}" class="btn btn-primary my-3">Crear</a>
+<a href="{{ route('user.create') }}" class="btn btn-primary my-3">Crear</a>
 <table class="table">
   <thead>
     <tr>
       <td>ID</td>
-      <td>Titulo</td>
-      <td>Categoria</td>
-      <td>Posted</td>
+      <td>Nombre</td>
+      <td>Apellido</td>
+      <td>Email</td>
       <td>Fecha de creacion</td>
       <td>Fecha de actualizacion</td>
       <td>Acciones</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
-    @foreach($posts as $post)
+    @foreach($users as $user)
     <tr>
-      <td>{{$post->id}}</td>
-      <td>{{$post->title}}</td>
-      <td>{{$post->category->title}}</td>
-      <td>{{$post->posted}}</td>
-      <td>{{$post->created_at->format('d-M-Y')}}</td>
-      <td>{{$post->updated_at->format('d-M-Y')}}</td>
+      <td>{{$user->id}}</td>
+      <td>{{$user->name}}</td>
+      <td>{{$user->surname}}</td>
+      <td>{{$user->email}}</td>
+      <td>{{$user->rol->key}}</td>
+      <td>{{$user->created_at->format('d-M-Y')}}</td>
+      <td>{{$user->updated_at->format('d-M-Y')}}</td>
       <td>
-        <a href="{{ route('post.show', $post->id) }}" class="btn btn-success">Mostrar</a>
-        <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary">Actualizar</a>
-        <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $post->id }}" class="btn btn-danger">Eliminar</button>
+        <a href="{{ route('user.show', $user->id) }}" class="btn btn-success">Mostrar</a>
+        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Actualizar</a>
+        <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" class="btn btn-danger">Eliminar</button>
       </td>
     </tr>
-    <form method="POST" action="{{ route('post.destroy', $post->id) }}">
-      @method('DELETE')
-      @csrf
-    </form>
-  </table>
     @endforeach
   </tbody>
-  
-{{$posts->links()}}
+</table>
+
+
+{{$users->links()}}
 @endsection
 
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,7 +50,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <h3>¿Seguro que desea eliminar post?</h3>
+        <h3>¿Seguro que desea eliminar user?</h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

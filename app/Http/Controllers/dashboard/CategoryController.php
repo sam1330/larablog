@@ -9,11 +9,18 @@ use App\Http\Requests\StoreCategoryPost;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('rol.admin');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $categories = Category::orderBy('id','desc')->paginate(4);

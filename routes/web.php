@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\PostController;
 use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,11 @@ Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->na
 
 Route::resource('dashboard/category', CategoryController::class);
 
+Route::resource('dashboard/user', UserController::class);
+
 
 // ESTA ES LA FORMA DE USAR UN CONTROLADOR Y SU RESPECTIVA CLASE QUE RESUELVA LA RUTA
 // Route::get('/users', [UsersController::class, "index"])
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

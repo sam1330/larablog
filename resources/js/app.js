@@ -3,25 +3,11 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
 require('./bootstrap');
-const ClassicEditor =  require( '@ckeditor/ckeditor5-build-classic' );
-
-ClassicEditor
-    .create( document.querySelector( '#content' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-
 
 window.Vue = require('vue').default;
 
-import {$,jQuery} from 'jquery';
-
-window.$ = $;
-window.jQuery = jQuery;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
