@@ -28,12 +28,12 @@
         <a href="{{ route('post.show', $post->id) }}" class="btn btn-success">Mostrar</a>
         <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary">Actualizar</a>
         <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $post->id }}" class="btn btn-danger">Eliminar</button>
+        <form method="POST" action="{{ route('post.destroy', $post->id) }}">
+          @method('DELETE')
+          @csrf
+        </form>
       </td>
     </tr>
-    <form method="POST" action="{{ route('post.destroy', $post->id) }}">
-      @method('DELETE')
-      @csrf
-    </form>
   </table>
     @endforeach
   </tbody>
