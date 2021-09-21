@@ -10002,3 +10002,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.bg-dark {
+  background-color: #00838f !important;
+}
+
+.bg-dark2 {
+  background-color: #006972;
+}

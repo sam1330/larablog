@@ -8,16 +8,12 @@
   <link rel="stylesheet" href="{{ asset("css/app.css") }}">
   
 </head>
-<body>
-  @include('dashboard.partials.nav-header-main')
-  
-<div class="container">
-
-  @include('dashboard.partials.sesion-flash-status')
-  
+<body>  
+  @include('web.partials.nav-header-main')
+<div class="container my-3" id="app">
   @yield('content')
-  <script src="{{ asset('js/app.js') }}"></script>
 </div>
-
+@include('web.partials.footer-main')
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\PostController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\dashboard\UserController;
+use App\Http\Controllers\web\webController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,6 @@ use App\Http\Controllers\dashboard\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
 
 Route::get('/dinamico/{nombre?}', function($nombre = ""){
     return "hello ".$nombre. " Conocenos <a href='".route("us")."'>Nosotros</a>";
@@ -49,6 +48,7 @@ Route::resource('dashboard/category', CategoryController::class);
 
 Route::resource('dashboard/user', UserController::class);
 
+Route::get('/', [webController::class, 'index'])->name('index');
 
 // ESTA ES LA FORMA DE USAR UN CONTROLADOR Y SU RESPECTIVA CLASE QUE RESUELVA LA RUTA
 // Route::get('/users', [UsersController::class, "index"])
