@@ -21,7 +21,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">{{ post }}</div>
           <div class="modal-footer">
             <button
               type="button"
@@ -39,11 +39,9 @@
 </template>
 <script>
 export default {
+  props:['post'],
   created() {
     console.log("created");
-    setTimeout(function () {
-      $("#postModal").modal("show");
-    }, 3000);
   },
 };
 </script>

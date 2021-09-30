@@ -50,6 +50,8 @@ Route::resource('dashboard/user', UserController::class);
 
 Route::get('/', [webController::class, 'index'])->name('index');
 
+Route::get('/details/{id}', [webController::class, 'detail']);
+
 // ESTA ES LA FORMA DE USAR UN CONTROLADOR Y SU RESPECTIVA CLASE QUE RESUELVA LA RUTA
 // Route::get('/users', [UsersController::class, "index"])
 Auth::routes();
