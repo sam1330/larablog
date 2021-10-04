@@ -12,7 +12,7 @@
         <div class="card-body">
           <h1 class="card-title">{{ post.title }}</h1>
           <router-link
-            :to="{ name: 'details', params: { id: post.id } }"
+            :to="{ name: 'post-category', params: { category_id: post.category.id } }"
             class="btn btn-primary"
             >{{ post.category.title }}</router-link
           >

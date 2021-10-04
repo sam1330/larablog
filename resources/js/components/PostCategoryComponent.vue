@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Posts</h1>
+    <h1>{{ category.title }}</h1>
     <div class="card mt-3" v-for="post in posts" :key="post.id">
       <img :src="'/images/'+post.image" alt="hola" />
       <div class="card-body">
@@ -25,20 +25,25 @@ export default {
     return {
       postSelected: "",
       posts: [],
+      category: "",
     };
   },
   created() {
-    this.getPost();
+    this.getPosts();
   },
   methods: {
     postClick(p) {
       this.postSelected = p;
       $("#postModal").modal("show");
     },
-    getPost() {
-      fetch("/api/post").then(res => {
+    getPosts() {
+        console.log("__" + this.$route.params.category_id);
+      fetch(`/api/post/${this.$route.params.category_id}/category`).then(res => {
         return res.json();
-      }).then(json => this.posts = json.data.data);
+      }).then(json => {
+        this.posts = json.data.posts.data;
+        this.category = json.data.category;
+    });
     },
   },
 };

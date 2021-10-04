@@ -35,6 +35,15 @@ class PostController extends ApiResponseController
    
     public function category(Category $category)
     {
-        return $this->successResponse(["posts" => $category->post()->paginate(5), "category" => $category]);
+        $posts = Post::
+        join('post_images', 'posts.id', '=', 'post_images.post_id')->
+        join('categories', 'posts.category_id', '=', 'categories.id')->
+        select('posts.*', 'categories.title as category', 'post_images.image')->
+        orderBy('posts.created_at', "desc")->where('categories.id', $category->id)->paginate(10);
+        
+        return $this->successResponse(["posts" => $posts, "category" => $category]);
+
+        //Con Relaciones
+        // return $this->successResponse(["posts" => $category->post()->paginate(5), "category" => $category]);
     }
 }

@@ -13,4 +13,7 @@ class webController extends Controller
     public function detail() {
         return view('web.index');
     }
+    public function post_category() {
+        return view('web.index');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\dashboard\PostController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\web\webController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::resource('dashboard/user', UserController::class);
 Route::get('/', [webController::class, 'index'])->name('index');
 
 Route::get('/details/{id}', [webController::class, 'detail']);
+Route::get('/post-category/{id}', [webController::class, 'post_category']);
 
 // ESTA ES LA FORMA DE USAR UN CONTROLADOR Y SU RESPECTIVA CLASE QUE RESUELVA LA RUTA
 // Route::get('/users', [UsersController::class, "index"])
