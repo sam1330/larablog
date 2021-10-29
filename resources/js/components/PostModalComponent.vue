@@ -40,9 +40,6 @@
 <script>
 export default {
   props:['post'],
-  created() {
-    console.log("created");
-  },
 };
 </script>
 <style>

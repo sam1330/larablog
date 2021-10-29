@@ -20,7 +20,7 @@
 </footer>
 <style>
   footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     right: 0;
     left: 0;

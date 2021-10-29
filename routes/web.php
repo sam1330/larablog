@@ -54,6 +54,8 @@ Route::get('/', [webController::class, 'index'])->name('index');
 Route::get('/details/{id}', [webController::class, 'detail']);
 Route::get('/post-category/{id}', [webController::class, 'post_category']);
 
+Route::get('/contact', [webController::class, 'contact']);
+
 // ESTA ES LA FORMA DE USAR UN CONTROLADOR Y SU RESPECTIVA CLASE QUE RESUELVA LA RUTA
 // Route::get('/users', [UsersController::class, "index"])
 Auth::routes();

@@ -22,6 +22,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // Vue.component('list-posts', require('./components/PostListComponent.vue').default);
 Vue.component('modal-posts', require('./components/PostModalComponent.vue').default);
 
+Vue.component('posts-list-default', require('./components/PostListDefaultComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

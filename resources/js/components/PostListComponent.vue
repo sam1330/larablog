@@ -1,44 +1,48 @@
 <template>
   <div>
-    <h1>Posts</h1>
-    <div class="card mt-3" v-for="post in posts" :key="post.id">
-      <img :src="'/images/'+post.image" alt="hola" />
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card content.
-        </p>
-        <router-link
-          :to="{ name: 'details', params: { id: post.id } }"
-          class="btn btn-primary"
-          >See Details</router-link
-        >
-      </div>
-    </div>
-    <modal-posts :post="postSelected"></modal-posts>
+    <router-link :to="{ name: 'contact' }" class="btn btn-success"
+      >Contact</router-link
+    >
+    <post-list-default-component
+      @getCurrentPage="getCurrentPage"
+      :posts="posts"
+      :total="total"
+    ></post-list-default-component>
   </div>
 </template>
 <script>
+import PostListDefaultComponent from "./PostListDefaultComponent.vue";
 export default {
+  components: { PostListDefaultComponent },
   data() {
     return {
       postSelected: "",
       posts: [],
+      total: 1,
+      currentPage: 1,
     };
   },
   created() {
-    this.getPost();
+    this.getPosts();
   },
   methods: {
     postClick(p) {
       this.postSelected = p;
       $("#postModal").modal("show");
     },
-    getPost() {
-      fetch("/api/post").then(res => {
-        return res.json();
-      }).then(json => this.posts = json.data.data);
+    getPosts() {
+      fetch("/api/post?page=" + this.currentPage)
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.posts = json.data.data;
+          this.total = 5;
+        });
+    },
+    getCurrentPage(currentPage) {
+      this.currentPage = currentPage;
+      this.getPosts();
     },
   },
 };
