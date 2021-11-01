@@ -1873,10 +1873,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {},
+  data: function data() {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: ''
+    };
+  },
   created: function created() {},
   methods: {
     saveContact: function saveContact(p) {
@@ -2101,9 +2106,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _PostListDefaultComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostListDefaultComponent.vue */ "./resources/js/components/PostListDefaultComponent.vue");
-//
-//
-//
 //
 //
 //
@@ -38326,64 +38328,133 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-8 offset-2" }, [
+    _c("div", { staticClass: "card" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", {}, [
+          _c("label", { staticClass: "text-secondary" }, [
+            _vm._v("First name")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.firstName,
+                expression: "firstName"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.firstName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.firstName = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-3" }, [
+          _c("label", { staticClass: "text-secondary" }, [_vm._v("Last name")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.lastName,
+                expression: "lastName"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.lastName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.lastName = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-3" }, [
+          _c("label", { staticClass: "text-secondary" }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-3" }, [
+          _c("label", { staticClass: "text-secondary" }, [_vm._v("Message")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message,
+                expression: "message"
+              }
+            ],
+            staticClass: "form-control",
+            domProps: { value: _vm.message },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.message = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-primary btn-lg mt-3" }, [
+          _vm._v("Send")
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-8 offset-2" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("div", { staticClass: "card-title" }, [
-            _vm._v("\n        Contact\n      ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", {}, [
-            _c("label", { staticClass: "text-secondary" }, [
-              _vm._v("First name")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-3" }, [
-            _c("label", { staticClass: "text-secondary" }, [
-              _vm._v("Last name")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-3" }, [
-            _c("label", { staticClass: "text-secondary" }, [_vm._v("Email")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-3" }, [
-            _c("label", { staticClass: "text-secondary" }, [_vm._v("Message")]),
-            _vm._v(" "),
-            _c("textarea", { staticClass: "form-control" })
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary btn-lg mt-3" }, [
-            _vm._v("Send")
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "card-header" }, [
+      _c("img", {
+        staticClass: "logo-200 mx-auto d-block",
+        attrs: { src: "/images/logo.svg", alt: "" }
+      })
     ])
   }
 ]
@@ -38609,12 +38680,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "router-link",
-        { staticClass: "btn btn-success", attrs: { to: { name: "contact" } } },
-        [_vm._v("Contact")]
-      ),
-      _vm._v(" "),
       _c("post-list-default-component", {
         attrs: { posts: _vm.posts, total: _vm.total },
         on: { getCurrentPage: _vm.getCurrentPage }

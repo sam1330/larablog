@@ -1,8 +1,5 @@
 <template>
   <div>
-    <router-link :to="{ name: 'contact' }" class="btn btn-success"
-      >Contact</router-link
-    >
     <post-list-default-component
       @getCurrentPage="getCurrentPage"
       :posts="posts"

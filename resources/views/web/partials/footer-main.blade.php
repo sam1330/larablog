@@ -1,6 +1,6 @@
 <footer class="text-center text-white" style="background-color: #45637d;">
-    <!-- Grid container -->
-    <div class="container p-4">
+  <!-- Grid container -->
+  <div class="container p-4">
     <!-- Section: Iframe -->
     <section class="">
       <div class="row d-flex justify-content-center">
@@ -14,7 +14,8 @@
   <!-- Copyright -->
   <div class="text-center text-white p-3 bg-dark2">
     © {{ date('Y') }} Copyright:
-    <a href="/">Larablog.com</a>
+    <router-link to="/">Larablog.com</router-link>
+    <router-link :to="{ name: 'contact' }" class="text-white"><u>Contact</u></router-link>
   </div>
   <!-- Copyright -->
 </footer>
