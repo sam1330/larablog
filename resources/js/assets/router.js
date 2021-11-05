@@ -2,6 +2,7 @@ window.Vue = require('vue').default;
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import PostList from "../components/PostListComponent.vue";
+import CategoryList from "../components/CategoryListDefaultComponent.vue";
 import PostDetail from "../components/PostDetailComponent.vue";
 import PostCategory from "../components/PostCategoryComponent.vue";
 import ContactCategory from "../components/ContactComponent.vue";
@@ -24,6 +25,11 @@ const router = new VueRouter({
         name: "contact",
         path: "/contact",
         component: ContactCategory,
+    },
+    {
+        name: "list-category",
+        path: "/categories",
+        component: CategoryList,
     },
     {
         name: "post-category",

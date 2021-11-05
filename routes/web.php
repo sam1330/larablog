@@ -50,6 +50,7 @@ Route::resource('dashboard/category', CategoryController::class);
 Route::resource('dashboard/user', UserController::class);
 
 Route::get('/', [webController::class, 'index'])->name('index');
+Route::get('/categories', [webController::class, 'index'])->name('index');
 
 Route::get('/details/{id}', [webController::class, 'detail']);
 Route::get('/post-category/{id}', [webController::class, 'post_category']);

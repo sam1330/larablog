@@ -10013,3 +10013,10 @@ h3 {
 .logo-200 {
   width: 200px;
 }
+
+footer {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
